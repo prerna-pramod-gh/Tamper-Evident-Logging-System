@@ -1,30 +1,12 @@
 ## 🛡️ Tamper-Evident Logging System
-Traditional log files (.txt, .csv) are fundamentally flawed in high-security environments: a rogue insider with file-system access can easily alter, delete, or rearrange entries to cover their tracks.
-
-This project simulates a real-world Secure Audit Logging System. It uses cryptographic chaining (similar to a blockchain) to ensure that if a single byte of a log entry is changed, the entire chain of custody is broken and the tampering is instantly detected.
+Traditional log files rely on trust. If a rogue insider alters a .txt or .csv log, the change is invisible. This project eliminates trust by using cryptographic chaining (SHA-256) to ensure that if a single byte of a log entry is changed, the tampering is instantly detected.
 
 ### 🎯 Key Features
 Cryptographic Chaining: Every log entry contains the SHA-256 hash of the previous entry.
-Collision Resistance: Utilizes a randomized nonce for every entry to prevent hash collisions on identical events.
+Collision Resistance: Utilizes a randomized nonce to prevent hash collisions on identical events.
 Comprehensive Detection: Catches in-place modifications, deleted entries, and rearranged logs.
 Zero False Positives: Verification relies on pure mathematics, ensuring absolute trust in the audit trail.
-### 🏗️ How It Works
-Instead of just writing text to a file, the system creates a JSON object for every event:
 
-Ingest: System receives event data (Timestamp, Event Type, Description).
-Link: It looks up the current_hash of the most recent log and assigns it as the new entry's previous_hash.
-Salting (Nonce): Generates a random string to ensure unique hashing.
-Seal: Hashes all combined data (Index + Timestamp + Event + Previous Hash + Nonce) using SHA-256 to create the current_hash.
-Store: Appends the sealed JSON object to secure_audit_log.json.
-[ Log 1 ]             [ Log 2 ]             [ Log 3 ]Prev: 0000...         Prev: Hash(1)         Prev: Hash(2)Data: "Login..."      Data: "File Access"   Data: "Logout..."Hash: abc123...  ---> Hash: def456...  ---> Hash: ghi789...
-If "File Access" is changed to "Deleted File", Hash(2) becomes xyz999. The system sees Hash(2) != def456 and triggers a TAMPER ALERT.
+### 📄 Deep-Dive Technical Whitepaper
+For the system architecture, threat modeling, and edge-case analysis, read the full technical document: https://docs.google.com/document/d/1ishEfiZe0uBRfICslhmTV6NcydIcrfwtOXPhQ0z5Tqw/edit?tab=t.0
 
-
-📄 Documentation & Threat Model
-As part of the cybersecurity assessment, a comprehensive 2500-word report was written detailing the design decisions, algorithm logic, edge-case handling, and limitations of this system.
-
-
-🛠️ Tech Stack
-Language: Python 3
-Cryptography: hashlib (SHA-256)
-Data Structure: JSON

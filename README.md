@@ -8,5 +8,5 @@ Comprehensive Detection: Catches in-place modifications, deleted entries, and re
 Zero False Positives: Verification relies on pure mathematics, ensuring absolute trust in the audit trail.
 
 ### 📄 Deep-Dive Technical Whitepaper
-For the system architecture, threat modeling, and edge-case analysis, read the full technical document: https://docs.google.com/document/d/1ishEfiZe0uBRfICslhmTV6NcydIcrfwtOXPhQ0z5Tqw/edit?tab=t.0
+For the system architecture, threat modeling, and edge-case analysis, read the full technical document on my LinkedIn: https://www.linkedin.com/in/prerna-pramod-671667301/
 

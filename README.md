@@ -9,4 +9,4 @@ Zero False Positives: Verification relies on pure mathematics, ensuring absolute
 
 ### 📄 Deep-Dive Technical Whitepaper
 For a deep dive into the system architecture, threat modeling, and edge-case analysis, I broke the entire system down into a PDF document.
-Read the technical breakdown on my LinkedIn: 
+Read the technical breakdown on my LinkedIn: https://www.linkedin.com/posts/prerna-pramod-671667301_tamper-evident-logging-system-using-sha-256-activity-7445831607212548096-wwI_?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE0pcPUBfBTjvYz8x_qGrovoe3xKj0Y0P_o
